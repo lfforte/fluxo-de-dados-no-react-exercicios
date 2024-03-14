@@ -1,6 +1,7 @@
 import { Button, Form, FormWrapper, Input, InputWrapper, Label } from "./ProfileForm.styled";
 
-const ProfileForm = () => {
+const ProfileForm = (props) => {
+
   return (
     <FormWrapper>
       <h1>Edit your profile</h1>
@@ -13,6 +14,8 @@ const ProfileForm = () => {
             name="name"
             id="name"
             autoComplete="off"
+            onChange={props.novoNome}
+            value={props.nomeProfile}
           />
         </InputWrapper>
 
@@ -23,6 +26,8 @@ const ProfileForm = () => {
             name="bio"
             id="bio"
             autoComplete="off"
+            onChange={props.novaBio}
+            value={props.bioProfile}
           />
         </InputWrapper>
 
@@ -33,10 +38,12 @@ const ProfileForm = () => {
             name="imageUrl"
             id="imageUrl"
             autoComplete="off"
+            onChange={props.novaImagem}
+            value={props.imagemProfile}
           />
         </InputWrapper>
 
-        <Button>Save Changes</Button>
+        <Button onClick={props.salvar}>Save Changes</Button>
       </Form>
     </FormWrapper>
   );
